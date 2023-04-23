@@ -1,0 +1,11 @@
+i tried .pem to connect ec2 instance from window 11 by using fowllowing steps: basically it gives 400 permissions to .pem security key file.
+go to Folder where your .pem key is present
+for windows users use:
+
+icacls.exe your_key_name.pem /reset
+
+icacls.exe your_key_name.pem /grant:r "$($env:username):(r)"
+
+icacls.exe your_key_name.pem /inheritance:r
+
+OR    if in  line #7  this  "$($env:username):(r)" not work , replace it with "%username%:(r)" then it will work.
